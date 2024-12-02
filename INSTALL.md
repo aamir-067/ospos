@@ -23,6 +23,8 @@ First of all, if you're seeing the message `system folder missing` after launchi
 9. Enjoy!
 10. Oops, an issue? Please make sure you read the FAQ, wiki page, and you checked open and closed issues on GitHub. PHP `display_errors` is disabled by default. Create an` application/config/.env` file from the `.env.example` to enable it in a development environment.
 
+## ` Note :  you can use above method for development too.`
+
 ## Local install using Docker
 
 OSPOS can be deployed using Docker on Linux, Mac, and Windows. Locally or on a host (server).
@@ -34,6 +36,23 @@ Docker runs natively on Mac and Linux. Windows requires WSL2 to be installed. Pl
 Start the containers using the following command
 
 ```
+    docker-compose up
+```
+
+## Development Install Using Docker
+
+to setup the project in development mode in docker just add the project path to the `docker-compose.yml file` in the volumes section.
+
+```yml
+volumes:
+  - ~/path/to/projectDirectory #add project directory here.
+  - uploads:/app/public/uploads
+  - logs:/app/application/logs
+```
+
+and then start the container. make sure the port you include in the `docker-compose.yml` file in not in use.
+
+```bash
     docker-compose up
 ```
 
